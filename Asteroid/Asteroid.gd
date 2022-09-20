@@ -20,6 +20,7 @@ func _physics_process(_delta):
 func damage(d):
 	health -= d
 	if health <= 0:
+		Global.update_score(50)
 		collision_layer = 0
 		var Asteroid_Container = get_node_or_null("/root/Game/Asteroid_Container")
 		if Asteroid_Container != null:

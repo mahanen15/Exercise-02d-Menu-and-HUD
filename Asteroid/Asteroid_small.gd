@@ -15,9 +15,11 @@ func _physics_process(_delta):
 func damage(d):
 	health -= d
 	if health <= 0:
+		Global.update_score(200)
 		Effects = get_node_or_null("/root/Game/Effects")
 		if Effects != null:
 			var explosion = Explosion.instance()
 			Effects.add_child(explosion)
 			explosion.global_position = global_position
 		queue_free()
+
